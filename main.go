@@ -46,8 +46,11 @@ func GetResources(db *sql.DB) {
 		var id int
 		var name string
 		var description string
+
+		// the order of Scan variables its necessay
+		// to be the same of query
 		err = rows.Scan(&id, &name, &description)
-		fmt.Printf("id= %d, name = %s, desc. = %s", id, name, description)
+		fmt.Println(id, name, description)
 	}
 
 	err = rows.Err()
