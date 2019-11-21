@@ -30,4 +30,28 @@ func main() {
 		panic(err)
 	}
 	fmt.Println("Connected!!")
+
+	GetResources(db)
+}
+
+// GetResources list all resources
+func GetResources(db *sql.DB) {
+
+	sql := "select id, name, description from resource"
+	rows, err := db.Query(sql)
+
+	defer rows.Close()
+
+	for rows.Next() {
+		var id int
+		var name string
+		var description string
+		err = rows.Scan(&id, &name, &description)
+		fmt.Printf("id= %d, name = %s, desc. = %s", id, name, description)
+	}
+
+	err = rows.Err()
+	if err != nil {
+		panic(err)
+	}
 }
