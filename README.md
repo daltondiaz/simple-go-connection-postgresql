@@ -45,4 +45,6 @@ next
 
 In the method `rows.Scan` the order of columns matter. So you need put him in the same order of query. The case I choose the order of select `select id, name, description from resource` and the row.Scan variables is `row.Scan(&id, &name, &description)`
 
-## Do you have problemns? Please create a Issue for me help u!!
+## Do you have problemns? 
+
+Please create a Issue for me help u!!
